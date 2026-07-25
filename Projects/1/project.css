@@ -301,3 +301,57 @@ footer > a:focus-visible {
     padding: 1.25rem;
   }
 }
+
+.project-header {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.project-navigation {
+  display: flex;
+  gap: clamp(1rem, 3vw, 2.5rem);
+}
+
+.project-navigation a {
+  color: var(--muted);
+  font-size: 0.78rem;
+  transition: color 180ms ease;
+}
+
+.project-navigation a:hover,
+.project-navigation a:focus-visible {
+  color: var(--text);
+}
+
+.project-hero {
+  padding-top: clamp(7rem, 11vw, 9rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.project-hero h1 {
+  margin: clamp(2rem, 5vw, 4rem) 0;
+  font-size: clamp(5rem, 15vw, 13rem);
+}
+
+.media-section {
+  padding-bottom: clamp(5rem, 9vw, 8rem);
+}
+
+@media (max-width: 600px) {
+  .project-header {
+    position: relative;
+  }
+
+  .project-navigation {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+  }
+
+  .project-hero {
+    padding-top: 4rem;
+  }
+}

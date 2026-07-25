@@ -20,8 +20,8 @@ main {
 }
 
 .project-hero {
-  padding-top: clamp(9rem, 17vw, 14rem);
-  padding-bottom: clamp(4rem, 8vw, 7rem);
+  padding-top: clamp(5rem, 8vw, 7rem);
+  padding-bottom: clamp(3rem, 5vw, 5rem);
 }
 
 .project-kicker,

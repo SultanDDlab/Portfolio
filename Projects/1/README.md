@@ -1,3 +1,0 @@
-# Alma project page
-
-

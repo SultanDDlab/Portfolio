@@ -129,6 +129,7 @@ main {
   font-size: 0.74rem;
   font-weight: 400;
   letter-spacing: 0.02em;
+    font-variant-emoji: text;
 
   transition:
     color 180ms ease,
@@ -186,7 +187,7 @@ main {
   max-width: 34rem;
   margin-bottom: 0;
 
-  color: var(--text);
+  color: rgb(202, 18, 18);
   font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-weight: 300;
   line-height: 1.22;

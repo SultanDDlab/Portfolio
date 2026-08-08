@@ -98,16 +98,15 @@ main {
 
 .hero {
   min-height: 100vh;
-  padding: 9rem var(--page-padding) 4rem;
+  padding: 6rem var(--page-padding) 4rem;
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
   gap: 4rem;
-  align-items: end;
+  align-items: center;
 }
 
 .hero-copy {
-  max-width: 56rem;
-  padding-bottom: clamp(1rem, 8vh, 6rem);
+  padding-bottom: 0;
 }
 
 .eyebrow {
@@ -344,5 +343,188 @@ footer {
   *::before,
   *::after {
     transition-duration: 0.01ms !important;
+  }
+}
+
+.anomaly-link {
+  position: relative;
+  padding: 0.7rem 1rem;
+  margin-top: 3rem;
+  border: 1.2px solid transparent;
+  border-radius: 8px;
+
+  background:
+    linear-gradient(var(--background), var(--background)) padding-box,
+    linear-gradient(
+      90deg,
+      #8f3cff,
+      #00b8ff,
+      #ff3c7d,
+      #8f3cff
+    ) border-box;
+
+  background-size:
+    100% 100%,
+    300% 100%;
+
+  animation: border-colours 5s linear infinite;
+}
+
+@keyframes border-colours {
+  0% {
+    background-position:
+      0 0,
+      0% 50%;
+  }
+
+  100% {
+    background-position:
+      0 0,
+      300% 50%;
+  }
+}
+
+
+.showreel-card {
+  margin-top: 5rem;
+  padding: 1.5rem 1.75rem;
+
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  align-items: center;
+  gap: 2rem;
+
+  position: relative;
+
+  border: 1px solid transparent;
+  border-radius: 6px;
+
+  color: var(--text);
+  text-decoration: none;
+
+  background: transparent;
+
+  transition: background 0.3s ease;
+}
+
+
+/* Animated neon border */
+.showreel-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+
+  border-radius: inherit;
+  padding: 1px;
+
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    #032b50,
+    #006ee6,
+    #00a6ff,
+    #72d5ff,
+    #008cff,
+    #063a66,
+    #032b50
+  );
+
+  background-size: 300% 100%;
+
+  /* Animation exists, but is frozen */
+  animation: showreel-neon 3s linear infinite;
+  animation-play-state: paused;
+
+  opacity: 0.75;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  transition:
+    opacity 0.3s ease,
+    filter 0.3s ease;
+}
+
+
+/* Start animation only when hovering */
+.showreel-card:hover::before {
+  animation-play-state: running;
+
+  opacity: 1;
+
+  filter:
+    brightness(1.5)
+    drop-shadow(0 0 5px rgba(0, 166, 255, 0.45));
+}
+
+
+/* Very subtle blue tint inside the box on hover */
+.showreel-card:hover {
+  background: rgba(0, 140, 255, 0.035);
+}
+
+
+/* Border movement */
+@keyframes showreel-neon {
+  from {
+    background-position: 0% 50%;
+  }
+
+  to {
+    background-position: 300% 50%;
+  }
+}
+
+
+/* Small SHOWREEL text */
+.showreel-label {
+  font-size: 0.7rem;
+  font-weight: 400;
+
+  letter-spacing: 0.15em;
+
+  color: var(--muted);
+}
+
+
+/* Main title */
+.showreel-title {
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+  font-weight: 400;
+}
+
+
+/* Play symbol */
+.showreel-arrow {
+  font-size: 1.2rem;
+
+  transition: transform 0.3s ease;
+}
+
+
+/* Small movement of play icon */
+.showreel-card:hover .showreel-arrow {
+  transform: translateX(4px);
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+  .showreel-card {
+    grid-template-columns: 1fr auto;
+    gap: 0.7rem 1rem;
+  }
+
+  .showreel-label {
+    grid-column: 1 / -1;
+  }
+
+  .showreel-title {
+    font-size: 1.3rem;
   }
 }
